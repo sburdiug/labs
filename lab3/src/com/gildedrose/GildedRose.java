@@ -24,11 +24,10 @@ class GildedRose {
                                 }
                             }
                         }
-                    } else {
-                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                     Item.decreaseQualityByOne(item);
                 }
-            }
+
 
             if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 item.sellIn = item.sellIn - 1;
@@ -38,13 +37,12 @@ class GildedRose {
                 if (item.name.equals("Aged Brie")) {
                         Item.increaseQualityByOne(item);
                 } else {
-                    if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        item.quality = 0;
+                    } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                             Item.decreaseQualityByOne(item);
                         }
-                    } else {
-                        item.quality = 0;
-                    }
+
                 }
             }
         }
