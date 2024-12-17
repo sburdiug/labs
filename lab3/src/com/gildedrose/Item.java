@@ -20,6 +20,12 @@ public class Item {
         }
     }
 
+    static void decreaseQualityByOne(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }
+
     @Override
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
