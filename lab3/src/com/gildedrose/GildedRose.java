@@ -33,13 +33,10 @@ class GildedRose {
                 case "Sulfuras, Hand of Ragnaros":
                     break;
                 default:
-                    item.decreaseQualityByOne(item);
-                    item.setSellIn(item.getSellIn() - 1);
-                    if (item.getSellIn() < 0) {
-                        item.decreaseQualityByOne(item);
-                    }
+                    item.updateQuality();
                     break;
             }
         }
     }
+
 }

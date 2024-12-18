@@ -53,6 +53,13 @@ public class Item {
 
     @Override
    public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
-    }
+        return this.name + ", " + this.sellIn + ", " + this.quality;}
+
+   public void updateQuality() {
+       decreaseQualityByOne(this);
+       setSellIn(getSellIn() - 1);
+       if (getSellIn() < 0) {
+           decreaseQualityByOne(this);
+       }
+   }
 }
