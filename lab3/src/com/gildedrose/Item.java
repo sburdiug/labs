@@ -14,15 +14,40 @@ public class Item {
         this.quality = quality;
     }
 
-    static void increaseQualityByOne(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
+    public int getQuality() {
+        return quality;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSellIn(int sellIn) {
+        this.sellIn = sellIn;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+
+    public void increaseQualityByOne() {
+        if (getQuality() < 50) {
+            setQuality(getQuality() + 1);
         }
     }
 
-    static void decreaseQualityByOne(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
+    public void decreaseQualityByOne(Item item) {
+        if (getQuality() > 0) {
+            setQuality(getQuality() - 1);
         }
     }
 

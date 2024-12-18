@@ -9,34 +9,34 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            switch (item.name){
+            switch (item.getName()){
                 case "Aged Brie":
-                    Item.increaseQualityByOne(item);
-                    item.sellIn = item.sellIn - 1;
-                    if (item.sellIn < 0) {
-                        Item.increaseQualityByOne(item);
+                    item.increaseQualityByOne();
+                    item.setSellIn(item.getSellIn() - 1);
+                    if (item.getSellIn() < 0) {
+                        item.increaseQualityByOne();
                     }
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    Item.increaseQualityByOne(item);
-                    if (item.sellIn < 11) {
-                        Item.increaseQualityByOne(item);
+                    item.increaseQualityByOne();
+                    if (item.getSellIn() < 11) {
+                        item.increaseQualityByOne();
                     }
-                    if (item.sellIn < 6) {
-                        Item.increaseQualityByOne(item);
+                    if (item.getSellIn() < 6) {
+                        item.increaseQualityByOne();
                     }
-                    item.sellIn = item.sellIn - 1;
-                    if (item.sellIn < 0) {
-                        item.quality = 0;
+                    item.setSellIn(item.getSellIn()-1);
+                    if (item.getSellIn() < 0) {
+                        item.setQuality(0);
                     }
                     break;
                 case "Sulfuras, Hand of Ragnaros":
                     break;
                 default:
-                    Item.decreaseQualityByOne(item);
-                    item.sellIn = item.sellIn - 1;
-                    if (item.sellIn < 0) {
-                        Item.decreaseQualityByOne(item);
+                    item.decreaseQualityByOne(item);
+                    item.setSellIn(item.getSellIn() - 1);
+                    if (item.getSellIn() < 0) {
+                        item.decreaseQualityByOne(item);
                     }
                     break;
             }
