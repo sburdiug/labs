@@ -1,48 +1,25 @@
 package client;
 
-import interfaces.ImageProcessorFactory;
+
 import factories.ColorCorrectionFactory;
 import factories.FilterApplicationFactory;
 import factories.ResizeFactory;
 
-import java.util.Scanner;
-
 public class Client {
-    public static void processImage(ImageProcessorFactory factory, String image) {
-        // Виклик обробки через фабрику
-        factory.createProcessor().process(image);
-    }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        InputHelper inputHelper = new InputHelper();
 
-        // Симуляція зображення
-        String image = "SampleImage.jpg";
-        System.out.println("Image to process: " + image);
+        String image = inputHelper.getString("Enter the path to the image file:");
 
-        // Меню для вибору операції
-        System.out.println("Choose an operation:");
-        System.out.println("1. Color Correction");
-        System.out.println("2. Filter Application");
-        System.out.println("3. Resize");
 
-        int choice = scanner.nextInt();
+        new ColorCorrectionFactory().createProcessor().process(image);
+        new FilterApplicationFactory().createProcessor().process(image);
 
-        // Виклик потрібної фабрики
-        switch (choice) {
-            case 1:
-                processImage(new ColorCorrectionFactory(), image);
-                break;
-            case 2:
-                processImage(new FilterApplicationFactory(), image);
-                break;
-            case 3:
-                processImage(new ResizeFactory(), image);
-                break;
-            default:
-                System.out.println("Invalid choice. Exiting.");
-        }
+        int width = inputHelper.getInt("Enter target width for Resize:");
+        int height = inputHelper.getInt("Enter target height for Resize:");
 
-        scanner.close();
+        new ResizeFactory(width, height).createProcessor().process(image);
+
+        inputHelper.close();
     }
 }
