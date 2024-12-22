@@ -7,4 +7,10 @@ class Book extends LibraryItem {
     protected String getItemType() {
         return "Book";
     }
+    @Override
+    public void searchItem() {
+        int UnavalibleCopies = copies - availableCopies ;
+        System.out.println(getItemType() + " Title: " + title + ", Author: " + author + ", ID: " + id +
+                ", Total Copies: " + copies + ", Available Copies: " + availableCopies + ", Unavailable Copies: "+ UnavalibleCopies );
+    }
 }

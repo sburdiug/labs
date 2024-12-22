@@ -2,7 +2,7 @@ class Audiobook extends LibraryItem {
     private final double duration;
 
     public Audiobook(String title, String author, String id, double duration, int copies) {
-        super(title, author, id, 0); // У аудіокниг немає копій
+        super(title, author, id, copies);
         this.duration = duration;
     }
 
@@ -16,14 +16,6 @@ class Audiobook extends LibraryItem {
     protected String getItemType() {
         return "Audiobook";
     }
-    @Override
-    public void takeIt() {
-        System.out.println("Audiobooks cannot be taken physically.");
-    }
 
-    @Override
-    public void returnItem() {
-        System.out.println("Audiobooks do not require returning.");
-    }
 
 }
